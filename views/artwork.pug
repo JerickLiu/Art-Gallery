@@ -1,0 +1,19 @@
+html
+    head
+        title artwork.name
+
+    body
+        include ./header
+        img(src=`${artwork.image}`)
+        
+        p #{artwork.year}
+        h1 #{artwork.name}
+        p By: 
+            a(href=`/artist/${artwork.artist}`) #{artwork.artist}
+        br
+        br
+        //- p Rating: #{artwork.rating}
+        p Category: #{artwork.category}
+        p Medium: #{artwork.medium}
+        br
+        p Description: #{artwork.description}

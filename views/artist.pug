@@ -1,0 +1,41 @@
+html
+    head
+        title= `${artist.username}`
+        style
+           include style.css
+
+    body(onload="init()")
+        include ./header
+        h1= `Artist: '${artist.username}'`
+        
+        div(id="uid" style="visibility: hidden") #{userID}
+        div(id="artist" style="visibility: hidden") #{artist.username}
+
+        button(id="follow") Follow / Unfollow
+
+        h2 Workshops:
+        ul
+            if artist.workshops
+                each val in artist.workshops
+                    li
+                        a(href=`/users/${val}`)= `${val}`
+            else
+                p (none)
+
+        h2 Artworks:
+
+        div(class='artRow')
+            each art in artworks
+                div(class='artColumn')
+                    a(href=`/artwork/${art.name}`)
+                        img(src=`${art.image}` style="width:100%")
+        
+
+        script!= `const artist = ${JSON.stringify(artist)};`
+        script!= `const userID = ${JSON.stringify(userID)};`
+        script!= `console.log(artist.username);`
+        script(src="/artist.js")
+        
+            
+
+        

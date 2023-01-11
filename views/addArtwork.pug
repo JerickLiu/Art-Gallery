@@ -1,0 +1,70 @@
+html
+    head
+        title Add Artwork
+    body
+        include ./header
+
+        script(src="/user.js")
+
+        h1 Add an Artwork:
+        div(id="uid" style="visibility: hidden") #{artist}
+
+ 
+        | Name:    
+        input(
+            type="textbox"
+            id="name"
+            
+        )
+        br 
+        br
+        | Category:    
+        input(
+            type="textbox"
+            id="category"
+            
+        )
+        br
+        br
+        | Year: 
+        input(
+            type="textbox"
+            id="year"
+            
+        )
+        br 
+        br
+        | Medium: 
+        input(
+            type="textbox"
+            id="medium"
+            
+        )
+        br 
+        br
+        | Description: 
+        input(
+            type="textbox"
+            id="description"
+            
+        )
+        br 
+        br
+
+        | Image Link: 
+        input(
+            type="textbox"
+            id="image"
+            
+        )
+        br 
+        br
+
+        button(
+            type="button"
+            id="add"
+            onclick="submit()"
+        ) Save Item
+
+
+        

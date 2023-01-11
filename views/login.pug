@@ -1,0 +1,17 @@
+html
+    head
+        title Login
+
+    body
+        include ./header
+        h1 Log In
+        form(action="/login" method="post")
+            | Username:
+            input(type="text" name="username" required="")
+            br
+            br
+            | Password:
+            input(type="password" name="password" required="")
+            br
+            br
+            button(type="submit") Login

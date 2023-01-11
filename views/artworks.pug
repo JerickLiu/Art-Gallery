@@ -1,0 +1,10 @@
+html
+    head
+        title Artists
+    body
+        include ./header
+        h1 All Artworks:
+        ul 
+            each art in artworks
+                a(href = "/artwork/" + art.name) #{art.name}
+                br

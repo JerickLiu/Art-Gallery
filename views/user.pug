@@ -1,0 +1,50 @@
+html
+    head
+        title= `${userData.username}`
+
+    body(onload="init()")
+        include ./header
+        h1= `User: ${userData.username}`
+
+        h2 Account Type:
+        form(id="account-type")
+            if userData.patron
+                input(id="patron-true" name="patron" type="radio" value="true")
+                label(for="patron-true") Artist
+                input(id="patron-false" name="patron" type="radio" value="false" checked="checked")
+                label(for="patron-false") Patron
+            else 
+                input(id="patron-true" name="patron" type="radio" value="true" checked="checked")
+                label(for="patron-true") Artist
+                input(id="patron-false" name="patron" type="radio" value="false")
+                label(for="patron-false") Patron
+
+        button(id="submit-button") Update Account Type
+
+        h2 Following List:
+        ul
+            if userData.following
+                each val in userData.following
+                    li
+                        a(href=`/artist/${val}`) #{val}
+            else
+                p (none)
+        
+        h2 Reviews:
+        ul
+            if userData.reviews
+                each val in userData.reviews
+                    li
+                        a(href=`/reviews/${val}`) #{val}
+            else
+                p (none)
+        
+
+        if !userData.patron
+            h2 Artist Tools:
+            a(href=`/addArtwork`) Add an Artwork
+        
+
+
+        script!= `const userData = ${JSON.stringify(userData)};`
+        script(src="/user.js")
